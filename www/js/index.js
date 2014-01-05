@@ -134,6 +134,7 @@ function handleLogin() {
                 data: {p_u: $().crypt({method:"sha1",source:u}), p_p: $().crypt({method:"sha1",source:p})},
                 //data: {p_u: u, p_p: p},
                 success: function(data) {
+                	navigator.notification.vibrate(500);
                     console.log("Login response: " + data.id + " Error: " + data.errorMsg);
                     if (data.error == false) {
                     	if (data.isValid == true) {
