@@ -21,23 +21,119 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
         <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <!--  <meta name="viewport" content="user-scalable=yes, initial-scale=1, maximum-scale=2, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /> -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.3.2.min.css" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <title>Hello World</title>
+        <title>Artekasa</title>
     </head>
-    <body>
-        <div class="app">
-            <h1>PhoneGap</h1>
-            <div id="deviceready" class="blink">
-                <p class="event listening">Connecting to Device</p>
-                <p class="event received">Device is Ready</p>
+    <body id="deviceready">
+    
+        <!-- ############################ Page LOGIN ####################### -->
+        <div id="loginPage" data-role="page">
+            <div data-role="header" data-id="app-header" data-position="fixed">
+            	<h1>Artekasa</h1>
+            	<button class="ui-btn-right" data-icon="check" data-theme="c"><span class="connection-type">Net</span></button>
             </div>
+            
+            
+            <div data-role="content">
+                <form id="loginForm">
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="username">Username:</label>
+                    <input type="text" name="username" id="username" value="" placeholder="Username" />
+                </div>
+        
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password" value="" placeholder="Password" />
+                </div>
+        
+                <input type="submit" value="Login" id="submitButton">
+                </form>
+                
+            </div>
+            
+            <div data-role="footer" data-id="footer" data-position="fixed">
+        	<div data-role="navbar">
+        		<ul>
+                    <!-- 
+        			<li><a href="#agenda" data-icon="gear" data-iconpos="top">Agenda</a></li>
+        			<li><a href="#prop" data-icon="gear" data-iconpos="top">Prop</a></li>
+        			<li><a href="#sync" data-icon="gear" data-iconpos="top">Sync</a></li>
+        			<li><a href="#info" data-icon="gear" data-iconpos="top">Info</a></li>
+                     -->
+                    <li><a href="" class="exit-app" data-icon="gear" data-iconpos="top">Exit</a></li>
+        		</ul>
+        	</div><!-- /navbar -->
+        </div><!-- /footer -->
+
+    </div>
+    
+    <!-- ############################ Page AGENDA ####################### -->
+    <div data-role="page" id="agenda">
+        <div data-role="header" data-id="app-header" data-position="fixed">
+            <h1>Artekasa</h1>
+            <button class="ui-btn-right" data-icon="check" data-theme="c"><span class="connection-type">Net</span></button>
         </div>
-        <script type="text/javascript" src="phonegap.js"></script>
+    
+        <div data-role="content">   
+            <div id="content_agenda"></div>
+        </div><!-- /content -->
+
+            <div data-role="footer" data-id="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#agenda" data-icon="gear" data-iconpos="top">Agenda</a></li>
+                    <li><a href="#prop" data-icon="gear" data-iconpos="top">Prop</a></li>
+                    <li><a href="#sync" data-icon="gear" data-iconpos="top">Sync</a></li>
+                    <li><a href="#info" data-icon="gear" data-iconpos="top">Info</a></li>
+                    <li><a href="" class="exit-app" data-icon="gear" data-iconpos="top">Exit</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
+    </div><!-- /page -->
+    
+    
+    <!-- ############################ Page INFO ####################### -->
+    <div data-role="page" id="info">
+    
+        <div data-role="header" data-id="app-header">
+            <h1>Artekasa</h1>
+            <button class="ui-btn-right" data-icon="check" data-theme="c"><span class="connection-type">Net</span></button>
+        </div><!-- /header -->
+    
+        <div data-role="content">   
+            <div class="header_content ko" id="device-info">Device: <span id="uuid_view"></span></div>
+            <p>View internal page called <a href="#loginPage">home</a></p> 
+        </div><!-- /content -->
+    
+        <div data-role="footer">
+            <h4>Page Footer</h4>
+        </div><!-- /footer -->
+    </div><!-- /page -->
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <script src="js/jquery-1.10.2.min.js"></script>
+        <script src="js/jquery.mobile-1.3.2.min.js"></script>
+        <script src="js/jquery.crypt.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="js/app_agenda.js"></script>
         <script type="text/javascript">
             app.initialize();
         </script>
+        
     </body>
 </html>
