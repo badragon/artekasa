@@ -138,6 +138,7 @@ function handleLogin() {
     console.log("login init");
     if(u != '' && p!= '') {
         try {
+	    alert(app_remote_url);
             $.mobile.loading( 'show', { text: "foo", textonly: false, textVisible: true });
             $.ajax({
                 type: "POST",
