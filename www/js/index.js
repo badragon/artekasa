@@ -139,7 +139,7 @@ function handleLogin() {
     if(u != '' && p!= '') {
         try {
 	    alert(app_remote_url);
-            $.mobile.loading( 'show', { text: "foo", textonly: false, textVisible: true });
+            $.mobile.loading( 'show', { text: "Login in corso", textonly: false, textVisible: true });
             $.ajax({
                 type: "POST",
                 url: app_remote_url + "login.php",
@@ -180,7 +180,7 @@ function handleLogin() {
                   $("#loginButton").removeAttr("disabled");
                 },
                 error: function(e) {
-                  alert('Error: ' + e.message);
+                  alert('Error: ' + e.responseText);
                   $("#loginButton").removeAttr("disabled");
                 },
                 complete: function() {
