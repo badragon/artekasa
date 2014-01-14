@@ -30,45 +30,115 @@
     </head>
     <body id="deviceready">
     
-        <!-- ############################ Page LOGIN ####################### -->
-        <div id="loginPage" data-role="page">
-            <div data-role="header" data-id="app-header" data-position="fixed">
-            	<h1>Artekasa</h1>
-            	<button class="ui-btn-right" data-icon="check" data-theme="c"><span class="connection-type">Net</span></button>
-            </div>
-            
-            
-            <div data-role="content">
-                <form id="loginForm">
-                <div data-role="fieldcontain" class="ui-hide-label">
-                    <label for="username">Username:</label>
-                    <input type="text" name="username" id="username" value="" placeholder="Username" />
-                </div>
+    <!-- ############################ Page DEVICE ####################### -->
+    <div id="devicePage" data-role="page">
+        <div data-role="header" data-id="app-header" data-position="fixed">
+        	<h1>Artekasa</h1>
+        	<button class="ui-btn-right" data-icon="check" data-theme="c"><span class="connection-type">Net</span></button>
+        </div>
         
-                <div data-role="fieldcontain" class="ui-hide-label">
-                    <label for="password">Password:</label>
-                    <input type="password" name="password" id="password" value="" placeholder="Password" />
-                </div>
         
-                <input type="submit" value="Login" id="submitButton">
-                </form>
-                
-            </div>
+        <div data-role="content">
+                <table style="width: 100%;">
+                    <tr>
+                        <td>
+                            Device UUID:
+                        </td>
+                        <td>
+                            <span id="v_uuid">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Device model:
+                        </td>
+                        <td>
+                            <span id="v_model">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Device platform
+                        </td>
+                        <td>
+                            <span id="v_platform">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Device version
+                        </td>
+                        <td>
+                            <span id="v_version">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Device name
+                        </td>
+                        <td>
+                            <span id="v_name">--</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Cordova version
+                        </td>
+                        <td>
+                            <span id="v_cordova">--</span>
+                        </td>
+                    </tr>
+                    <tr id="reg_btn_row">
+                        <td colspan="2" align="center">
+                            <input type="button" value="Register" id="regButton">
+                        </td>
+                    </tr>
+                </table>
             
-            <div data-role="footer" data-id="footer" data-position="fixed">
+        </div>
+        
+        <div data-role="footer" data-id="footer" data-position="fixed">
         	<div data-role="navbar">
         		<ul>
-                    <!-- 
-        			<li><a href="#agenda" data-icon="gear" data-iconpos="top">Agenda</a></li>
-        			<li><a href="#prop" data-icon="gear" data-iconpos="top">Prop</a></li>
-        			<li><a href="#sync" data-icon="gear" data-iconpos="top">Sync</a></li>
-        			<li><a href="#info" data-icon="gear" data-iconpos="top">Info</a></li>
-                     -->
                     <li><a href="" class="exit-app" data-icon="gear" data-iconpos="top">Exit</a></li>
         		</ul>
         	</div><!-- /navbar -->
         </div><!-- /footer -->
 
+    </div>
+    
+    <!-- ############################ Page LOGIN ####################### -->
+    <div id="loginPage" data-role="page">
+        <div data-role="header" data-id="app-header" data-position="fixed">
+            <h1>Artekasa</h1>
+            <button class="ui-btn-right" data-icon="check" data-theme="c"><span class="connection-type">Net</span></button>
+        </div>
+        
+        
+        <div data-role="content">
+            <div id="loginForm">
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" value="" placeholder="Username" />
+            </div>
+    
+            <div data-role="fieldcontain" class="ui-hide-label">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password" value="" placeholder="Password" />
+            </div>
+    
+            <input type="button" value="Login" id="loginButton">
+            </div>
+            
+        </div>
+        
+        <div data-role="footer" data-id="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="" class="exit-app" data-icon="gear" data-iconpos="top">Exit</a></li>
+                </ul>
+            </div><!-- /navbar -->
+        </div><!-- /footer -->
     </div>
     
     <!-- ############################ Page AGENDA ####################### -->
