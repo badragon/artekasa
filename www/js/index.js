@@ -16,7 +16,8 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app_remote_url = "http://192.168.1.234/devel/ahl/artekasa/artekasa/api/phone/";
+//var app_remote_url = "http://192.168.1.234/devel/ahl/artekasa/artekasa/api/phone/";
+var app_remote_url = "http://artekasa.webdevhell.com/appl/api/phone/";
 
 var app = {
     // Application Constructor
