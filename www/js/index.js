@@ -19,6 +19,11 @@
 //var app_remote_url = "http://192.168.1.234/devel/ahl/artekasa/artekasa/api/phone/";
 var app_remote_url = "http://artekasa.webdevhell.com/appl/api/phone/";
 
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value 
+
+var db = window.openDatabase("Database", "1.0", "ArtekasaDb", 500000000);
+
 var app = {
     // Application Constructor
     initialize: function() {
@@ -59,6 +64,9 @@ var app = {
         
         $.mobile.allowCrossDomainPages = true;
         
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+        
         chkDeviceReg();
         
         /*
@@ -80,7 +88,9 @@ var app = {
     */
         $(".exit-app").click(function(e) {
         	e.preventDefault();
-            navigator.app.exitApp();
+        	if (confirm("Sei sicuro di voler uscire?")) {
+        		navigator.app.exitApp();
+        	}
         });
         
         $("#device-info").removeClass("ko");
@@ -139,6 +149,9 @@ var app = {
         //navigator.notification.alert("Utente: " + app.userid, function() {});
         
         agenda.initialize();
+
+        
+        appdb.initialize();
         
     }
     
@@ -349,4 +362,72 @@ function fileFail(evt) {
 /*
  * END: READ FILE functions
 */
+
+
+/*
+ * CAMERA
+ */
+
+
+// Called when a photo is successfully retrieved
+//
+function onPhotoDataSuccess(imageData) {
+  // Uncomment to view the base64 encoded image data
+  // console.log(imageData);
+
+  // Get image handle
+  //
+  var smallImage = document.getElementById('smallImage');
+
+  // Unhide image elements
+  //
+  smallImage.style.display = 'block';
+
+  // Show the captured photo
+  // The inline CSS rules are used to resize the image
+  //
+  smallImage.src = "data:image/jpeg;base64," + imageData;
+  
+
+  alert('a');
+  appdb.saveImage(imageData);
+  alert('b');
+}
+
+// Called when a photo is successfully retrieved
+//
+function onPhotoURISuccess(imageURI) {
+  // Uncomment to view the image file URI 
+   console.log(imageURI);
+
+  // Get image handle
+  //
+  var largeImage = document.getElementById('largeImage');
+
+  // Unhide image elements
+  //
+  largeImage.style.display = 'block';
+
+  // Show the captured photo
+  // The inline CSS rules are used to resize the image
+  //
+  largeImage.src = imageURI;
+}
+
+// A button will call this function
+//
+function capturePhoto() {
+  // Take picture using device camera and retrieve image as base64-encoded string
+  navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+    destinationType: destinationType.DATA_URL });
+}
+
+
+// Called if something bad happens.
+// 
+function onFail(message) {
+  alert('Failed because: ' + message);
+}
+
+
 
