@@ -22,7 +22,8 @@ var app_remote_url = "http://artekasa.webdevhell.com/appl/api/phone/";
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
 
-var db = window.openDatabase("Database", "1.0", "ArtekasaDb", 500000000);
+var db = null;
+
 
 var app = {
     // Application Constructor
@@ -45,6 +46,14 @@ var app = {
         $(document).on("pageshow", "#agenda", function(e, ui) {
         	app.agendaInit();
         });
+        
+        $(document).on("pageshow", "#prop", function(e, ui) {
+        	app.propInit();
+        });
+        
+        $(document).on("pageshow", "#foto", function(e, ui) {
+        	app.fotoInit();
+        });
     },
     // deviceready Event Handler
     //
@@ -52,6 +61,7 @@ var app = {
     // function, we must explicity call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        
     },
     onBackButton: function(e) {
     	e.preventDefault();
@@ -64,10 +74,29 @@ var app = {
         
         $.mobile.allowCrossDomainPages = true;
         
+        
+        
         pictureSource=navigator.camera.PictureSourceType;
         destinationType=navigator.camera.DestinationType;
         
         chkDeviceReg();
+        /*
+        alert('a');
+        db = openDatabase('documents', '1.0', 'Offline document storage', 50*1024*1024, function (db) {
+            db.changeVersion('', '1.0', function (t) {
+                t.executeSql('CREATE TABLE DEMO2 (id, data)');
+              }, error);
+            });
+        alert('b');
+        db.readTransaction(function (t) {
+            t.executeSql('SELECT COUNT(*) AS c FROM DEMO2', [], function (t, r) {
+            	console.log(r.rows[0].c);
+            }, function (t, e) {
+              // couldn't read database
+            	console.log('(unknown: ' + e.message + ')');
+            });
+          });
+        */
         
         /*
 	alert("Model: " + device.model);
@@ -100,11 +129,6 @@ var app = {
         $("#loginButton").on("click",handleLogin);
         
         $("#regButton")
-	        .button({
-	            icons: {
-	                primary: "ui-icon-triangle-1-w"
-	            }
-	        })
 	        .on("click", function() {
 	        	console.log("regButton click");
 	        	$("#reg_btn_row").hide();
@@ -112,11 +136,6 @@ var app = {
 	        });
         
         $("#ulinkButton")
-	        .button({
-	            icons: {
-	                primary: "ui-icon-triangle-1-w"
-	            }
-	        })
 	        .on("click", function() {
 	        	console.log("ulinkButton click");
 	        	$("#access_btn_row").hide();
@@ -126,11 +145,6 @@ var app = {
 	        });
         
         $("#autoLoginButton")
-	        .button({
-	            icons: {
-	                primary: "ui-icon-triangle-1-w"
-	            }
-	        })
 	        .on("click", function() {
 	        	console.log("autoLoginButton click");
 	        	$("#access_btn_row").hide();
@@ -151,7 +165,21 @@ var app = {
         agenda.initialize();
 
         
-        appdb.initialize();
+        //appdb.initialize();
+        
+    },
+    propInit: function() {
+        console.log('called PropInit();');
+        
+        //navigator.notification.alert("Utente: " + app.userid, function() {});
+        
+        prop.initialize();
+        
+    },
+    fotoInit: function() {
+        console.log('called fotoInit();');
+        
+        foto.initialize();
         
     }
     
@@ -287,15 +315,17 @@ function chkDeviceReg() {
  * READ FILE functions
  */ 
 function getRegInfo(fileSystem) {
-    fileSystem.root.getFile("deviceinfo.txt", {create: true}, gotFileEntryR, fileFail);
+	var entry=fileSystem.root; 
+    entry.getDirectory("artekasa", {create: true, exclusive: false}, null, null);
+    fileSystem.root.getFile("artekasa/deviceinfo.txt", {create: true}, gotFileEntryR, fileFail);
 }
 
 function setRegInfo(fileSystem) {
-    fileSystem.root.getFile("deviceinfo.txt", {create: true}, gotFileEntryW, fileFail);
+    fileSystem.root.getFile("artekasa/deviceinfo.txt", {create: true}, gotFileEntryW, fileFail);
 }
 
 function deleteRegInfo(fileSystem) {
-    fileSystem.root.getFile("deviceinfo.txt", {create: true}, gotFileEntryRemove, fileFail);
+    fileSystem.root.getFile("artekasa/deviceinfo.txt", {create: true}, gotFileEntryRemove, fileFail);
 }
 
 function gotFileEntryR(fileEntry) {

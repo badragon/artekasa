@@ -111,3 +111,10 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+
+.a-left {
+	text-align: left;
+}
+.a-right {
+	text-align: right;
+}

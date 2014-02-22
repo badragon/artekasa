@@ -9,7 +9,7 @@ var agenda = {
     },
     
     getAgenda: function() {
-    	$("#content_agenda").html("Loaded");
+    	$("#content_agenda").html("Ricerca eventi in agenda...");
     }
     
 };

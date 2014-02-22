@@ -1,4 +1,5 @@
 var appdb = {
+		
     // Application Constructor
     initialize: function() {
         console.log('Db initialized.');
