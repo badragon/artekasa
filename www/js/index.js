@@ -54,6 +54,10 @@ var app = {
         $(document).on("pageshow", "#foto", function(e, ui) {
         	app.fotoInit();
         });
+        
+        $(document).on("pageshow", "#sync", function(e, ui) {
+        	app.syncInit();
+        });
     },
     // deviceready Event Handler
     //
@@ -180,6 +184,12 @@ var app = {
         console.log('called fotoInit();');
         
         foto.initialize();
+        
+    },
+    syncInit: function() {
+        console.log('called syncInit();');
+        
+        sync.initialize();
         
     }
     
@@ -418,10 +428,11 @@ function onPhotoDataSuccess(imageData) {
   //
   smallImage.src = "data:image/jpeg;base64," + imageData;
   
-
+/*
   alert('a');
   appdb.saveImage(imageData);
   alert('b');
+  */
 }
 
 // Called when a photo is successfully retrieved
