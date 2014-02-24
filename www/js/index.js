@@ -16,8 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
+
 //var app_remote_url = "http://192.168.1.234/devel/ahl/artekasa/artekasa/api/phone/";
-var app_remote_url = "http://artekasa.webdevhell.com/appl/api/phone/";
+//var app_remote_url = "http://artekasa.webdevhell.com/appl/api/phone/";
+var app_remote_url = "http://www.akia.it/artekasa/api/phone/";
 
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
@@ -435,25 +437,6 @@ function onPhotoDataSuccess(imageData) {
   */
 }
 
-// Called when a photo is successfully retrieved
-//
-function onPhotoURISuccess(imageURI) {
-  // Uncomment to view the image file URI 
-   console.log(imageURI);
-
-  // Get image handle
-  //
-  var largeImage = document.getElementById('largeImage');
-
-  // Unhide image elements
-  //
-  largeImage.style.display = 'block';
-
-  // Show the captured photo
-  // The inline CSS rules are used to resize the image
-  //
-  largeImage.src = imageURI;
-}
 
 // A button will call this function
 //
