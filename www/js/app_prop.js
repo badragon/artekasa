@@ -98,7 +98,7 @@ function savePropW2(fileEntry) {
             console.log("write success");
         };
         var content = JSON.stringify($("#new-prop-content :input").serializeArray());
-        alert(content);
+        //alert(content);
         writer.write(content);
     }, fileFail);
 }
