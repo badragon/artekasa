@@ -17,6 +17,7 @@ var foto = {
         var delFile;
         this.delFile = '';
     	
+        $("#content_sync").html("");
     	$("#content_foto").html("Loading...");
 
     	$("#aaa").on("click", function (){

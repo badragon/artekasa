@@ -50,7 +50,7 @@ var prop = {
         			        var aTmp = new Array();
         			        $.each(obj,
         			        	    function(i, v) {
-        			        	        console.log("i="+i+" -- v.name="+v.name+" -- v.value="+v.value);
+        			        	        //console.log("i="+i+" -- v.name="+v.name+" -- v.value="+v.value);
         			        			aTmp[v.name] = v.value;
         			        	    });
         			        //alert(dir + " ==> "+ aTmp["a_data[PROP_REF]"]);
