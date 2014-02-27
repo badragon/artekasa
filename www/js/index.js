@@ -296,8 +296,8 @@ function chkDeviceReg() {
      */
 	$.mobile.loading();
 	
-    console.log("Device: " + device.uuid);
     try {
+        console.log("Device: " + device.uuid);
     	$("#reg_btn_row").hide();
     	$("#access_btn_row").hide();
     	
