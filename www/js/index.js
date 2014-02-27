@@ -82,8 +82,8 @@ var app = {
         
         
         
-        pictureSource=navigator.camera.PictureSourceType;
-        destinationType=navigator.camera.DestinationType;
+        //pictureSource=navigator.camera.PictureSourceType;
+        //destinationType=navigator.camera.DestinationType;
         
         chkDeviceReg();
         /*
