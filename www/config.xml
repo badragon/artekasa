@@ -11,7 +11,6 @@
     <gap:plugin name="org.apache.cordova.device" />
     <gap:plugin name="org.apache.cordova.storage" />
     <gap:plugin name="org.apache.cordova.network" />
-    <gap:plugin name="org.apache.cordova.notification" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.battery" />
     <gap:plugin name="org.apache.cordova.file" />
