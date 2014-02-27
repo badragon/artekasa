@@ -327,9 +327,14 @@ function chkDeviceReg() {
  * READ FILE functions
  */ 
 function getRegInfo(fileSystem) {
-	var entry=fileSystem.root; 
-    entry.getDirectory("artekasa", {create: true, exclusive: false}, null, null);
-    fileSystem.root.getFile("artekasa/deviceinfo.txt", {create: true}, gotFileEntryR, fileFail);
+    try {
+		var entry=fileSystem.root; 
+	    entry.getDirectory("artekasa", {create: true, exclusive: false}, null, null);
+	    fileSystem.root.getFile("artekasa/deviceinfo.txt", {create: true}, gotFileEntryR, fileFail);
+    } catch (e){
+        alert(e.message);
+        $.mobile.loading('hide');
+    }
 }
 
 function setRegInfo(fileSystem) {
@@ -397,7 +402,7 @@ function afterDeleteFile(evt) {
 }
 
 function fileFail(evt) {
-    console.log("FILE ERROR: " + evt.target.error.code);
+    alert("FILE ERROR: " + evt.target.error.code);
 }
 
 
