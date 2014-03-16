@@ -356,9 +356,9 @@ function gotFile(file){
 function readAsText(file) {
     var reader = new FileReader();
     reader.onloadend = function(evt) {
-        alert("Read as text");
-        alert(evt.target.result);
-        alert("END of Read as text");
+        //alert("Read as text");
+        //alert(evt.target.result);
+        //alert("END of Read as text");
         app.regInfo = evt.target.result;
 
     	if (app.regInfo == null || app.regInfo == '') {
