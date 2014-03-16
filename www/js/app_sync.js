@@ -56,10 +56,10 @@ var sync = {
         var id_file = 'prg_'+dir+'_'+$().crypt({method:"md5",source: options.fileName});
         var html = $("#file_"+dir).html();
 	    html += '<tr>';
-	    html += '<td>';
+	    html += '<td style="width:150px;">';
 	    html += options.fileName;
 	    html += '</td>';
-	    html += '<td id="'+id_file+'" >';
+	    html += '<td id="'+id_file+'" style="width:300px;" >';
 	    html += '';
 	    html += '</td>';
 	    html += '</tr>';
@@ -155,8 +155,8 @@ function syncReaderSuccess(entries) {
     		html += '</tr>';
     		// bottone foto
     		html += '<tr>';
-    		html += '<td colspan="4"';
-    		html += '<button type="button" class="btn btn-primary" onclick="sync.doSync(\''+entries[i].name+'\');">Sincronizza</button>';
+    		html += '<td colspan="4" style="border: 1px solid black;">';
+    		html += '<div class="row"><div class="col-sm-6"><button type="button" class="btn btn-primary" onclick="sync.doSync(\''+entries[i].name+'\');"><i class="fa fa-cloud-download fa-fw"></i>Sincronizza</button></div><div class="col-sm-6 text-right"><button type="button" class="btn btn-danger" onclick="sync.delete(\''+entries[i].name+'\');"><i class="fa fa-trash-o fa-fw"></i>Cancella</button></div></div>';
     		html += '</td>';
     		html += '</tr>';
     		// file da inviare
@@ -233,7 +233,7 @@ function Upfail(error) {
 
 
 function onPhotoUriSuccess(imageUriToUpload){
-	alert(imageUriToUpload);
+	//alert(imageUriToUpload);
     //var url=encodeURI("http://your_url_for_the_post/");
     var url=encodeURI(app_remote_url + "save_prop.php")
 
